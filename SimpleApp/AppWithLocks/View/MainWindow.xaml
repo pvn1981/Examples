@@ -1,0 +1,98 @@
+﻿<infrastructure:WindowView
+    x:Class="AppWithLocks.Views.MainWindow"
+    xmlns:infrastructure="clr-namespace:AppWithLocks.Infrastructure"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:D="clr-namespace:AppWithLocks.DesignTime"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:AppWithLocks"
+    xmlns:extensions="clr-namespace:AppWithLocks.Extensions"
+    xmlns:enum="clr-namespace:AppWithLocks.Primitives"
+    mc:Ignorable="d"
+    d:DataContext="{x:Static D:DesignTimeData.MainViewModelDesignDevice}"
+    Title="Демо версия"
+    Width="780" Height="165">
+
+    <StackPanel Width="760" Height="145">
+        <Grid  Background="LightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" Content="Серийный номер:">
+            </Label>
+
+            <ComboBox Grid.Row="0"  Grid.Column="1" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                SelectedItem="{Binding TypeActivate}" 
+                ItemsSource="{Binding Source={extensions:EnumBindingSource {x:Type enum:TypeActivate}}}">
+            </ComboBox>
+
+            <TextBlock  Grid.Row="0"  Grid.Column="2"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Text="{Binding SerialText}"
+                TextWrapping="Wrap">
+            </TextBlock>
+
+            <Label Grid.Row="1" Grid.Column="0" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Content="Код регистрации:">
+            </Label>
+
+            <Button Content="Сохранить"
+                    Command="{Binding SaveRegistrationCodeCommand}"
+                    Grid.Row="1"  Grid.Column="1">
+            </Button>
+
+            <TextBlock  Grid.Row="1"  Grid.Column="2"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Text="{Binding RegistratiobCodeText}"
+                TextWrapping="Wrap">
+            </TextBlock>
+
+            <Label Grid.Row="2" Grid.Column="0"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Content="Ключ:">
+            </Label>
+
+            <Button Content="Сформировать"
+                    Command="{Binding GetActivatingCodeCommand}"
+                    Grid.Row="2"  Grid.Column="1">
+            </Button>
+
+            <TextBlock  Grid.Row="2"  Grid.Column="2"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Text="{Binding ActivationCodeText}"
+                TextWrapping="Wrap">
+            </TextBlock>
+
+            <Label Grid.Row="3" Grid.Column="0"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Content="Режим:">
+            </Label>
+
+            <ComboBox Grid.Row="3"  Grid.Column="1" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                SelectedItem="{Binding TypeAppMode}" 
+                ItemsSource="{Binding Source={extensions:EnumBindingSource {x:Type enum:TypeAppMode}}}">
+            </ComboBox>
+
+            <Button Content="Зарегистрировать"
+                    Command="{Binding ActivateWindowCommand}"
+                    IsEnabled="{Binding IsEnableAppMode}"
+                    Grid.Row="3"  Grid.Column="2">
+            </Button>
+        </Grid>
+    </StackPanel>
+</infrastructure:WindowView>
