@@ -1,0 +1,38 @@
+﻿<Window x:Class="ExampleMenu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleMenu"
+        mc:Ignorable="d"
+        Title="Example" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--Меню-->
+        <StackPanel Grid.Column="0" Margin="15">
+            <Button Command="{Binding LoadMainUCCommand, Mode=OneTime}"
+                Margin="10" Width="30" Height="30" HorizontalAlignment="Left">
+                <TextBlock FontFamily="Segoe UI Symbol" FontSize="14">
+                        <Run Text="&#xE0A5;" />
+                </TextBlock>
+            </Button>
+            <Button Command="{Binding LoadFirstUCCommand, Mode=OneTime}"
+                Margin="10" Width="30" Height="30" HorizontalAlignment="Left">
+                <TextBlock FontFamily="Segoe UI Symbol" FontSize="14">
+                        <Run Text="&#xE2AF;" />
+                </TextBlock>
+            </Button>
+            <Button Command="{Binding LoadSecondUCCommand, Mode=OneTime}"
+                Margin="10" Width="30" Height="30" HorizontalAlignment="Left">
+                <TextBlock FontFamily="Segoe UI Symbol" FontSize="14">
+                        <Run Text="&#xE1E2;" />
+                </TextBlock>
+            </Button>
+        </StackPanel>
+        <!--Контент-->
+        <ContentPresenter Grid.Column="1" x:Name="OutputView" />
+    </Grid>
+</Window>
