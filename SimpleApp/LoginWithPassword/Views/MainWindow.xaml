@@ -1,0 +1,139 @@
+﻿<Window x:Class="LoginWithPassword.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoginWithPassword"
+        xmlns:D="clr-namespace:LoginWithPassword.DesignTime"
+        mc:Ignorable="d"
+        d:DataContext="{x:Static D:DesignTimeData.MainWindowModel}"
+        Title="" Height="272" Width="314">
+    <Grid Background="Coral" Margin="0,0,0,4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" 
+                       Grid.Column="0" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Content="Сервер:"/>
+                
+                <TextBlock Grid.Row="0" 
+                           Grid.Column="1" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="127.0.0.1"/>
+
+                <Label Grid.Row="1" 
+                       Grid.Column="0" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Content="Пользователь:"/>
+
+                <TextBlock Grid.Row="1" 
+                           Grid.Column="1" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="..."/>
+
+                <Label Grid.Row="2" 
+                       Grid.Column="0" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Content="Пароль:"/>
+
+                <TextBlock Grid.Row="2" 
+                           Grid.Column="1" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="***"/>
+                
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       Background="Gray"/>
+                
+                <Button Grid.Row="3" 
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Grid.Column="1"
+                        Content="Соединиться"/>
+                
+            </Grid>
+        </Border>
+        
+        <ScrollViewer Grid.Row="1">
+            <Grid HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <DataGrid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Users}">
+                    
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="№" Width="25">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Number}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Индекс" Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Id}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Имя пользователя" Width="200">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Margin="5,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Добавить"/>
+                <Button Grid.Column="1" Content="Редактировать"/>
+                <Button Grid.Column="2" Content="Удалить"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
