@@ -23,6 +23,9 @@ namespace LoginWithPassword
         public MainWindow()
         {
             InitializeComponent();
+
+            Models.MainWindowModel model = new Models.MainWindowModel();
+            DataContext = model;
         }
     }
 }

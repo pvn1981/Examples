@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         d:DataContext="{x:Static D:DesignTimeData.MainWindowModel}"
         Title="" Height="272" Width="314">
-    <Grid Background="Coral" Margin="0,0,0,4">
+
+    <Grid Margin="0,0,0,4">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -64,17 +65,48 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="***"/>
-                
+
                 <Label Grid.Row="3"
-                       Grid.Column="0"
-                       Background="Gray"/>
-                
+                    Grid.Column="0">
+
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Setter Property="Content" Value="Нет подключения" />
+
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsConnected}" Value="True">
+                                    <Setter Property="Content" Value="Подключено" />
+                                    <Setter Property="Foreground" Value="Green" />
+                                </DataTrigger>
+                                
+                                <DataTrigger Binding="{Binding Path=IsConnected}" Value="False">
+                                    <Setter Property="Content" Value="Нет соединения" />
+                                    <Setter Property="Foreground" Value="Red" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+
                 <Button Grid.Row="3" 
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Grid.Column="1"
-                        Content="Соединиться"/>
-                
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                        Command="{Binding ConnectDBCommand}">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsConnected}" Value="True">
+                                    <Setter Property="Content" Value="Отключиться" />
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=IsConnected}" Value="False">
+                                    <Setter Property="Content" Value="Подключиться" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </Grid>
         </Border>
         
