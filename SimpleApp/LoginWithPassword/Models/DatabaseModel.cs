@@ -11,21 +11,26 @@ namespace LoginWithPassword.Models
     {
         public bool Connected { get; set; }
 
+        public string Host { get; set; }
+        public int Port { get; set; }
+        public string User { get; set; }
+        public string Password { get; set; }
+
         public DatabaseModel()
         {
-            string host = "127.0.0.1";
-            int port = 3306;
-            string user_name = "root";
-            string password = "12345678";
-
-            string connectionString = "Server=" + host + ";port=" + port + ";User Id=" + user_name + ";password=" + password;
-            mySqlConnection = new MySqlConnection(connectionString);
+            Host = Properties.Settings.Default.Host;
+            Port = Properties.Settings.Default.Port;
+            User = Properties.Settings.Default.User;
+            Password = Properties.Settings.Default.Password;
         }
 
         public void Connect()
         {
             try
             {
+                string connectionString = "Server=" + Host + ";port=" + Port + ";User Id=" + User + ";password=" + Password;
+                mySqlConnection = new MySqlConnection(connectionString);
+
                 mySqlConnection.Open();
                 if (mySqlConnection.State == System.Data.ConnectionState.Open)
                 {

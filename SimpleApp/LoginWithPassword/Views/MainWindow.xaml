@@ -32,39 +32,33 @@
 
                 <Label Grid.Row="0" 
                        Grid.Column="0" 
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
                        Content="Сервер:"/>
                 
-                <TextBlock Grid.Row="0" 
-                           Grid.Column="1" 
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="127.0.0.1"/>
+                <TextBox Grid.Row="0" 
+                         Grid.Column="1" 
+                         HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                         Text="{Binding DbHost, Mode=TwoWay}"/>
 
                 <Label Grid.Row="1" 
                        Grid.Column="0" 
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
                        Content="Пользователь:"/>
 
-                <TextBlock Grid.Row="1" 
-                           Grid.Column="1" 
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="..."/>
+                <TextBox Grid.Row="1" 
+                         Grid.Column="1" 
+                         HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                         Text="{Binding DbUser, Mode=TwoWay}"/>
 
                 <Label Grid.Row="2" 
                        Grid.Column="0" 
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"
                        Content="Пароль:"/>
 
-                <TextBlock Grid.Row="2" 
-                           Grid.Column="1" 
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="***"/>
+                <TextBox Grid.Row="2" 
+                         Grid.Column="1" 
+                         HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                         Text="{Binding DbPassword, Mode=TwoWay}"/>
 
                 <Label Grid.Row="3"
                     Grid.Column="0">

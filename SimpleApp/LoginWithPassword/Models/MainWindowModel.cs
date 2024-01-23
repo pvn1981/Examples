@@ -20,6 +20,51 @@ namespace LoginWithPassword.Models
 
     class MainWindowModel : ObservableObject
     {
+        public string DbHost
+        {
+            get
+            {
+                return dbModel.Host;
+            }
+
+            set
+            {
+                dbModel.Host = value;
+                Properties.Settings.Default.Host = dbModel.Host;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        public string DbUser
+        {
+            get
+            {
+                return dbModel.User;
+            }
+
+            set
+            {
+                dbModel.User = value;
+                Properties.Settings.Default.User = dbModel.User;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        public string DbPassword
+        {
+            get
+            {
+                return dbModel.Password;
+            }
+
+            set
+            {
+                dbModel.Password = value;
+                Properties.Settings.Default.Password = dbModel.Password;
+                Properties.Settings.Default.Save();
+            }
+        }
+
         public MainWindowModel()
         {
             dbModel = new DatabaseModel();
