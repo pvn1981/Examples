@@ -71,8 +71,6 @@
 
                     <Label.Style>
                         <Style TargetType="Label">
-                            <Setter Property="Content" Value="Нет подключения" />
-
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Path=IsConnected}" Value="True">
                                     <Setter Property="Content" Value="Подключено" />
