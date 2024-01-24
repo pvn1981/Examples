@@ -28,8 +28,6 @@ namespace LoginWithPassword.Models
             Port = Properties.Settings.Default.Port;
             User = Properties.Settings.Default.User;
             Password = Properties.Settings.Default.Password;
-
-
         }
 
         public void Connect()
