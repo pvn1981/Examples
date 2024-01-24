@@ -94,6 +94,12 @@ namespace LoginWithPassword.Models
                     {
                         dbModel.Connect();
                         OnPropertyChanged(nameof(IsConnected));
+
+                        if (IsConnected)
+                        {
+                            dbModel.CreateDatabase();
+                            dbModel.CreateTable();
+                        }
                     } 
                     else
                     {
@@ -103,6 +109,21 @@ namespace LoginWithPassword.Models
                 });
             }
         }
+
+        public ICommand AddUserCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    if (!dbModel.Connected)
+                    {
+                        throw new Exception("Not implimented");
+                    }
+                });
+            }
+        }
+        
 
         public int IndexNumber { get; set; }
 
