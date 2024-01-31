@@ -81,7 +81,8 @@ namespace SimpleExampleAES
             string ivSecret = "@Dx!n9^B";
 
             // пароль
-            string password = "12345678";
+            string password = "123";
+            Console.WriteLine("Plain text data: {0}", password);
 
             Aes aes = Aes.Create();
 
@@ -90,10 +91,11 @@ namespace SimpleExampleAES
 
             // Encrypt string
             byte[] encryptedPassword = Encrypt(password, aes.Key, aes.IV);
-            string encryptedPasswordStr = System.Text.Encoding.UTF8.GetString(encryptedPassword);
-            Console.WriteLine("Encrypted data: {0}", encryptedPasswordStr);
+            string base64encryptPassword = Convert.ToBase64String(encryptedPassword);
+            Console.WriteLine("Encrypted data: {0}", base64encryptPassword);
 
-            string decryptedPasswordStr = Decrypt(encryptedPassword, aes.Key, aes.IV);
+            byte[] encryptedPasswordArray = Convert.FromBase64String(base64encryptPassword);
+            string decryptedPasswordStr = Decrypt(encryptedPasswordArray, aes.Key, aes.IV);
             Console.WriteLine("Decrypted data: {0}", decryptedPasswordStr);
 
             Console.WriteLine("Press any key!");
