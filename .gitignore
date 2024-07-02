@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# InnoSetupOutput
+/SimpleSetup/FirstApp/Setup/Output
