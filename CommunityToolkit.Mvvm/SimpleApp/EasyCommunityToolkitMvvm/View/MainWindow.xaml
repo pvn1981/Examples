@@ -1,0 +1,52 @@
+﻿<Window x:Class="EasyCommunityToolkitMvvm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyCommunityToolkitMvvm"
+        xmlns:viewmodel="clr-namespace:EasyCommunityToolkitMvvm.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        SizeToContent="WidthAndHeight">
+
+    <Window.Resources>
+        <viewmodel:DataViewModel x:Key="ViewModel"/>
+    </Window.Resources>
+
+    <Grid Background="Bisque" Margin="20" DataContext="{Binding Source={StaticResource ViewModel}}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" 
+               Content="Enter name: " HorizontalAlignment="Right" />
+
+        <TextBox Grid.Column="1" Grid.Row="0" 
+                 Name="Fnumber" Width="100" Height="20" HorizontalAlignment="Left" 
+                 Text="{Binding CurrentName , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="1" 
+               Content="{Binding SavedName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+               HorizontalAlignment="Right" />
+
+        <Grid Grid.Column="1" Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="2"  HorizontalAlignment="Center" 
+                    Content="Cancel" Name="CancelButton" Command="{Binding CancelCommand}"/>
+
+            <Button Grid.Column="1"  Margin="2" HorizontalAlignment="Center" 
+                    Content="Save" Name="SaveButton" Command="{Binding SaveCommand}"/>
+        </Grid>
+    </Grid>
+</Window>
