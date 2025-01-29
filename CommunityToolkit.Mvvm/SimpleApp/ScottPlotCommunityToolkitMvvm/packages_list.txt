@@ -1,0 +1,35 @@
+Проект "ScottPlotCommunityToolkitMvvm" содержит следующие ссылки на пакеты
+   [net6.0-windows7.0]: 
+   Пакет верхнего уровня                 Запрошено   Разрешено
+   > CommunityToolkit.Mvvm               8.4.0       8.4.0    
+   > Microsoft.Xaml.Behaviors.Wpf        1.1.135     1.1.135  
+   > OpenTK                              4.9.3       4.9.3    
+   > ScottPlot                           5.0.53      5.0.53   
+   > ScottPlot.WPF                       5.0.53      5.0.53   
+   > SkiaSharp                           3.116.1     3.116.1  
+   > SkiaSharp.Views.Desktop.Common      3.116.1     3.116.1  
+
+   Транзитивный пакет                                 Разрешено
+   > HarfBuzzSharp                                    7.3.0.3  
+   > HarfBuzzSharp.NativeAssets.Linux                 7.3.0.3  
+   > HarfBuzzSharp.NativeAssets.macOS                 7.3.0.3  
+   > HarfBuzzSharp.NativeAssets.Win32                 7.3.0.3  
+   > OpenTK.Audio.OpenAL                              4.9.3    
+   > OpenTK.Compute                                   4.9.3    
+   > OpenTK.Core                                      4.9.3    
+   > OpenTK.GLWpfControl                              4.2.3    
+   > OpenTK.Graphics                                  4.9.3    
+   > OpenTK.Input                                     4.9.3    
+   > OpenTK.Mathematics                               4.9.3    
+   > OpenTK.redist.glfw                               3.3.8.39 
+   > OpenTK.Windowing.Common                          4.9.3    
+   > OpenTK.Windowing.Desktop                         4.9.3    
+   > OpenTK.Windowing.GraphicsLibraryFramework        4.9.3    
+   > SkiaSharp.HarfBuzz                               2.88.9   
+   > SkiaSharp.NativeAssets.Linux.NoDependencies      2.88.9   
+   > SkiaSharp.NativeAssets.macOS                     3.116.1  
+   > SkiaSharp.NativeAssets.Win32                     3.116.1  
+   > SkiaSharp.Views.WPF                              2.88.9   
+   > System.ComponentModel.Annotations                5.0.0    
+   > System.Runtime.CompilerServices.Unsafe           6.1.0    
+

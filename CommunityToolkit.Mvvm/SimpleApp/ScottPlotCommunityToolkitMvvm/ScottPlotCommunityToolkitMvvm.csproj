@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="packages_offline_NET6\**" />
+    <EmbeddedResource Remove="packages_offline_NET6\**" />
+    <None Remove="packages_offline_NET6\**" />
+    <Page Remove="packages_offline_NET6\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="get_packages_list.cmd" />
+    <None Remove="nuget_backup_NET6_with_dependence.cmd" />
+    <None Remove="nuget_restore.cmd" />
+    <None Remove="packages_list.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="OpenTK" Version="4.9.3" />
+    <PackageReference Include="ScottPlot" Version="5.0.53" />
+    <PackageReference Include="ScottPlot.WPF" Version="5.0.53" />
+    <PackageReference Include="SkiaSharp" Version="3.116.1" />
+    <PackageReference Include="SkiaSharp.Views.Desktop.Common" Version="3.116.1" />
+  </ItemGroup>
+  
+</Project>
