@@ -1,45 +1,6 @@
-﻿namespace MyConsoleName;
+﻿namespace Observer;
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Stock stock = new Stock();
-        Bank bank = new Bank("ЮнитБанк", stock);
-        Broker broker = new Broker("Иван Иваныч", stock);
-
-        // 'Q' = 81
-        const int qBigLitheral = 81;
-
-        // 'q' == 113
-        const int qSmallLitheral = 113;
-
-        // 's' == 113
-        const int qStopLitheral = 115;
-
-        int k = 0;
-        while (!(k == qBigLitheral || k == qSmallLitheral))
-        {
-            // имитация торгов
-            stock.Market();
-            Console.WriteLine("\n\n");
-            Console.WriteLine("Нажмите клавишу для продолжения. Для выхода введите q или Q");
-
-            k = Console.Read();
-
-            if(k == qStopLitheral)
-            {
-                // брокер прекращает наблюдать за торгами
-                broker.StopTrade();
-            }
-
-            Console.Clear();
-        }
-
-        Console.WriteLine("Нажмите любую клавишу для выхода");
-        Console.Read();
-    }
-}
+#region Interfaces
 
 interface IObserver
 {
@@ -51,6 +12,16 @@ interface IObservable
     void RegisterObserver(IObserver o);
     void RemoveObserver(IObserver o);
     void NotifyObservers();
+}
+
+#endregion Interfaces
+
+#region Stock
+
+class StockInfo
+{
+    public int USD { get; set; }
+    public int Euro { get; set; }
 }
 
 class Stock : IObservable
@@ -90,11 +61,9 @@ class Stock : IObservable
     }
 }
 
-class StockInfo
-{
-    public int USD { get; set; }
-    public int Euro { get; set; }
-}
+#endregion Stock
+
+#region Broker
 
 class Broker : IObserver
 {
@@ -122,6 +91,10 @@ class Broker : IObserver
     }
 }
 
+#endregion Broker
+
+#region Bank
+
 class Bank : IObserver
 {
     public string Name { get; set; }
@@ -140,5 +113,48 @@ class Bank : IObserver
             Console.WriteLine("Банк {0} продает евро;  Курс евро: {1}", this.Name, sInfo.Euro);
         else
             Console.WriteLine("Банк {0} покупает евро;  Курс евро: {1}", this.Name, sInfo.Euro);
+    }
+}
+
+#endregion Bank
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stock stock = new Stock();
+        Bank bank = new Bank("ЮнитБанк", stock);
+        Broker broker = new Broker("Иван Иваныч", stock);
+
+        // 'Q' = 81
+        const int qBigLitheral = 81;
+
+        // 'q' == 113
+        const int qSmallLitheral = 113;
+
+        // 's' == 113
+        const int qStopLitheral = 115;
+
+        int k = 0;
+        while (!(k == qBigLitheral || k == qSmallLitheral))
+        {
+            // имитация торгов
+            stock.Market();
+            Console.WriteLine("\n\n");
+            Console.WriteLine("Нажмите клавишу для продолжения. Для выхода введите q или Q");
+
+            k = Console.Read();
+
+            if (k == qStopLitheral)
+            {
+                // брокер прекращает наблюдать за торгами
+                broker.StopTrade();
+            }
+
+            Console.Clear();
+        }
+
+        Console.WriteLine("Нажмите любую клавишу для выхода");
+        Console.Read();
     }
 }
