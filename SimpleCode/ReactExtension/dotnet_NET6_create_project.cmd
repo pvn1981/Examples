@@ -1,7 +1,7 @@
 @echo off
 
 set SOLUTION_NAME="ReactiveExtensionExample"
-set CONSOLE_PROJECT_NAME="Range"
+set CONSOLE_PROJECT_NAME="SimpleExample"
 
 dotnet new sln -o %SOLUTION_NAME%
 

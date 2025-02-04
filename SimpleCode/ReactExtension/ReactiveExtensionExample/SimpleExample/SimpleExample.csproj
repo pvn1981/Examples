@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LINQPad.Runtime" Version="8.3.7" />
     <PackageReference Include="System.Reactive" Version="6.0.1" />
   </ItemGroup>
 
