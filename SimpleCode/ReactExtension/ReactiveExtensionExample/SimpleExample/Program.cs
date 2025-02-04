@@ -109,6 +109,9 @@ class Program
 
     static void Main(string[] args)
     {
+        // Information was founded on
+        // https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys?view=windowsdesktop-9.0
+
         // 'Q' = 81
         const int qBigLitheral = 81;
 
