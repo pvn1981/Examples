@@ -1,7 +1,7 @@
 @echo off
 
-set SOLUTION_NAME="Lambda1"
-set CONSOLE_PROJECT_NAME="LambdaName"
+set SOLUTION_NAME="LambdaExample"
+set CONSOLE_PROJECT_NAME="MakeCustomIterator"
 
 dotnet new sln -o %SOLUTION_NAME%
 
