@@ -5,13 +5,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyCommunityToolkitMvvm"
-        xmlns:viewmodel="clr-namespace:EasyCommunityToolkitMvvm.ViewModel"
+        xmlns:viewmodel="clr-namespace:ScottPlotCommunityToolkitMvvm.ViewModel"
         xmlns:wpf="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         mc:Ignorable="d"
         Title="ScottPlot with MVVM"
         SizeToContent="WidthAndHeight" 
-        d:DesignHeight="340" 
-        d:DesignWidth="450">
+        d:DesignHeight="400" 
+        d:DesignWidth="600"
+        xmlns:designtimens="clr-namespace:ScottPlotCommunityToolkitMvvm.DesignTime"
+        d:DataContext="{x:Static designtimens:DesignTimeData.DataViewModel}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,12 +21,13 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <wpf:WpfPlot Grid.Row="0"
-                     x:Name="wpfPlot"
-                     MinHeight="400"
-                     MinWidth="600"
-                     Height="Auto"
-                     Width="Auto"/>
+        <wpf:WpfPlot 
+            x:Name="wpfPlot"
+            Grid.Row="0"
+            MinHeight="350"
+            MinWidth="500"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"/>
 
         <StatusBar Grid.Row="1">
             <StatusBarItem>

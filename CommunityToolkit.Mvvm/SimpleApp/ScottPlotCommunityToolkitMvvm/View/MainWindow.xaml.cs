@@ -1,7 +1,10 @@
-﻿using EasyCommunityToolkitMvvm.ViewModel;
+﻿using System.Windows;
+using System.Diagnostics;
+
 using Microsoft.Xaml.Behaviors;
-using ScottPlot.WPF;
-using System.Windows;
+
+using ScottPlotCommunityToolkitMvvm.ViewModel;
+using ScottPlotCommunityToolkitMvvm.Properties;
 
 namespace EasyCommunityToolkitMvvm
 {
@@ -14,8 +17,17 @@ namespace EasyCommunityToolkitMvvm
         {
             InitializeComponent();
 
-            DataContext = new DataViewModel();
-            ((DataViewModel)DataContext).UpdatePlot(wpfPlot);
+            DataViewModel model = new DataViewModel();
+            model.Plot = this.wpfPlot;
+            DataContext = model;
+
+            if(Settings.Default.UseTestData == true)
+            {
+                model.DataX = new float[] { 1, 2, 3, 4, 5 };
+                model.DataY = new float[] { 1, 4, 9, 16, 25 };
+            }
+
+            model.UpdatePlot();
 
             // Create the Interaction Triggers for Loaded event
             var trigger = new Microsoft.Xaml.Behaviors.EventTrigger { EventName = "Loaded" };
